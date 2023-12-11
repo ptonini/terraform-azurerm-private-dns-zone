@@ -4,7 +4,10 @@ resource "azurerm_private_dns_zone" "this" {
   resource_group_name = var.rg.name
   lifecycle {
     ignore_changes = [
-      tags
+      tags["business_unit"],
+      tags["environment"],
+      tags["product"],
+      tags["subscription_type"]
     ]
   }
 }
@@ -18,7 +21,10 @@ resource "azurerm_private_dns_zone_virtual_network_link" "this" {
   resource_group_name   = var.rg.name
   lifecycle {
     ignore_changes = [
-      tags
+      tags["business_unit"],
+      tags["environment"],
+      tags["product"],
+      tags["subscription_type"]
     ]
   }
 }
